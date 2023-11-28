@@ -1,21 +1,21 @@
-name: CI/CD
+# name: CI/CD
 
-on:
-  push:
-    branches: [ main ]
+# on:
+#   push:
+#     branches: [ main ]
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v2
-      with:
-        push: true
-        tags: ghcr.io/<your-github-username>/<your-repo-name>:latest
-    - name: Set up Kubectl
-      uses: azure/setup-kubectl@v1
-    - name: Update Kubernetes deployment
-      run: |
-        kubectl set image deployment/flask-app flask-app=ghcr.io/<your-github-username>/<your-repo-name>:latest
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Build and push Docker image
+#       uses: docker/build-push-action@v2
+#       with:
+#         push: true
+#         tags: ghcr.io/<your-github-username>/<your-repo-name>:latest
+#     - name: Set up Kubectl
+#       uses: azure/setup-kubectl@v1
+#     - name: Update Kubernetes deployment
+#       run: |
+#         kubectl set image deployment/flask-app flask-app=ghcr.io/<your-github-username>/<your-repo-name>:latest
